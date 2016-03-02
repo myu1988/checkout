@@ -1,0 +1,173 @@
+/* app css stylesheet */
+
+body {
+  padding-top: 20px;
+}
+
+.barcode{margin-top: 16px;}
+
+ul{ 
+  list-style:none; 
+  padding:0px; 
+  margin:0px; 
+  width:100%;
+  height:50px; 
+  line-height:50px; 
+  border:1px solid #99CC00;
+  border-top:0px; 
+  font-size:12px;
+}
+
+ul li{ 
+  display:block; 
+  width:16.66%; 
+  float:left;
+  text-indent:2em
+}
+
+.th{ 
+  background:#F1FADE; 
+  font-weight:bold; 
+  border-top:1px 
+}
+
+.tf li{
+  width:100%;
+  text-align: right;
+  padding-right: 40px;
+}
+
+ul.th-set{ 
+  list-style:none; 
+  padding:0px; 
+  margin:0px; 
+  width:290px;
+  height:50px; 
+  line-height:50px; 
+  border:1px solid #99CC00;
+  border-top:0px; 
+  font-size:12px;
+}
+
+ul.th-set li{ 
+  display:block; 
+  width:33%; 
+  float:left;
+  text-indent:2em
+}
+
+.th-set{ 
+  background:#F1FADE; 
+  font-weight:bold; 
+  border-top:1px 
+}
+
+.printReceipt{
+  margin-top: 16px;
+}
+
+ul.printList { 
+  border:0; 
+  height:30px;
+  line-height: 30px
+}
+
+p.popBox{
+  margin-top: 16px;
+  margin-bottom: 16px;
+}
+
+#popDiv{
+  position:fixed!important;/* FF IE7*/
+  position:absolute;/*IE6*/
+  z-index:999;
+  width: 580px;
+  max-height: 80%;
+  left:50%;
+  top: 5%;
+  margin-left:-290px!important;/*FF IE7 该值为本身宽的一半 */
+}
+
+.popBox{
+  padding: 20px;
+  background:#fff;
+  overflow:hidden;
+  border-radius:10px;
+  -moz-border-radius: 10px; /* Firefox */
+  -webkit-border-radius: 10px; /* Safari 和 Chrome */
+}
+
+.closeReceipt{text-align: center;}
+
+.bg{
+  background-color: #000;
+  width: 100%;
+  height: 100%;
+  left:0;
+  top:0;/*FF IE7*/
+  filter:alpha(opacity=60);/*IE*/
+  opacity:0.6;/*FF*/
+  z-index:3;
+  position:fixed!important;/*FF IE7*/
+  position:absolute;/*IE6*/
+  _top:expression(eval(document.compatMode &&
+    document.compatMode=='CSS1Compat') ?
+  documentElement.scrollTop + (document.documentElement.clientHeight-this.offsetHeight)/2 :/*IE6*/
+  document.body.scrollTop + (document.body.clientHeight - this.clientHeight)/2);
+}
+
+
+.view-container {
+  position: relative;
+}
+
+.view-frame.ng-enter,
+.view-frame.ng-leave {
+  background: white;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.view-frame.ng-enter {
+  -webkit-animation: 0.5s fade-in;
+  -moz-animation: 0.5s fade-in;
+  -o-animation: 0.5s fade-in;
+  animation: 0.5s fade-in;
+  z-index: 100;
+}
+
+.view-frame.ng-leave {
+  -webkit-animation: 0.5s fade-out;
+  -moz-animation: 0.5s fade-out;
+  -o-animation: 0.5s fade-out;
+  animation: 0.5s fade-out;
+  z-index: 99;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@-webkit-keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-moz-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
+@-webkit-keyframes fade-out {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}

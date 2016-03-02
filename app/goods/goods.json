@@ -1,0 +1,32 @@
+[
+    {
+        "code": "ITEM000001", 
+        "name": "可口可乐", 
+        "sale": {
+            "buy3Get1Free": true,
+            "fivePercentOff": true
+            }, 
+        "price": 3.00,
+        "unit":"瓶"
+    }, 
+    {
+        "code": "ITEM000002", 
+        "name": "羽毛球", 
+        "sale": {
+            "buy3Get1Free": true,
+            "fivePercentOff": false
+            }, 
+        "price": 1.00,
+        "unit":"个"
+    }, 
+    {
+        "code": "ITEM000003", 
+        "name": "苹果", 
+        "sale": {
+            "buy3Get1Free": false,
+            "fivePercentOff": true
+            }, 
+        "price": 5.50,
+        "unit":"斤"
+    }
+]

@@ -1,0 +1,71 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <!--Sidebar content-->
+      <div>
+         设置商品优惠
+      <ul class="th-set">
+        <li>名称</li>
+        <li>买二赠一</li>
+        <li>95折</li>
+      </ul>
+      <ul class="th-set" ng-repeat="item in items">
+        <li>{{item.name}}</li>
+        <li><input type="checkbox" ng-model="item.sale.buy3Get1Free"></li>
+        <li><input type="checkbox" ng-model="item.sale.fivePercentOff"></li>
+      </ul>
+      </div>
+
+      <div class="barcode"> 条码: <input placeholder="格式：ITEM000001-3" ng-model="item.barcode"><button id="add-items" ng-click="addItemToShow()">+</button></div>
+    </div>
+    <div class="col-md-6">
+      <!--Body content-->
+      <ul class="th">
+        <li>名称</li>
+        <li>数量</li>
+        <li>单价</li>
+        <li>优惠</li>
+        <li>节省</li>
+        <li>小计</li>
+      </ul>
+      <ul ng-repeat="item in itemsForShow track by $index">
+        <li>{{item.name}}</li>
+        <li>{{item.quantity}}</li>
+        <li>{{item.price}}</li>
+        <li>{{item.promotion}}</li>
+        <li>{{item.save}}</li>
+        <li>{{item.subtotal}}</li> 
+      </ul>
+      <ul class="tf">
+        <li>总计：{{totalCost}}</li>
+      </ul>
+
+      <button id="print-receipt" class="printReceipt" ng-click="printReceipt()">确定打印小票</button>
+
+      <div id="popDiv" ng-show="showReceipt">
+
+       <div class="popBox">
+         <p>***<没钱赚商店>购物清单***</p>
+         <ul class="printList" ng-repeat="item in itemsForShow track by $index">
+           名称：{{item.name}}，数量：{{item.quantity}}{{item.unit}}，单价：{{item.price}}(元)，小计：{{item.subtotal}}(元)<span ng-show="item.save != 0 && item.sale.buy3Get1Free != true">，节省：{{item.save}}(元)</span>
+         </ul>
+         <p>----------------------</p>
+         <div ng-show="showBuy3Get1Free">
+           <p>买二赠一商品</p>
+           <ul class="printList" ng-repeat="item in itemsBuy3Get1Free track by $index">
+             名称：{{item.name}}，数量：{{item.save/item.price}}{{item.unit}}
+           </ul>   
+           <p>----------------------</p>
+         </div>
+
+         <p>总计：{{totalCost}}(元)</p>
+         <p ng-show="totalSave != 0">节省：{{totalSave}}(元)</p>
+         <p>**********************</p>
+         <div class="closeReceipt"><button ng-click="closeReceipt()">关闭</button></div>
+       </div>
+       
+      </div>
+      <div id="bg" class="bg" ng-show="showBg"></div>
+   </div>
+ </div>
+</div>
