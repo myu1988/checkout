@@ -1,7 +1,5 @@
 'use strict';
 
-/* Controllers */
-
 var checkoutControllers = angular.module('checkoutControllers', []);
 
 checkoutControllers.controller('CheckoutCtrl', ['$scope', 'Item', 
@@ -24,7 +22,9 @@ checkoutControllers.controller('CheckoutCtrl', ['$scope', 'Item',
       save:0.00,
       unit:''
     };
+
     $scope.totalCost = 0.00;
+
     $scope.totalSave = 0.00;
 
     $scope.itemsForShow = [];
@@ -35,7 +35,7 @@ checkoutControllers.controller('CheckoutCtrl', ['$scope', 'Item',
       addItem();
       calMoney();
       calTotal();
-    }
+    };
 
     function addItem() {
       var arr = $scope.item.barcode.split('-');
@@ -45,15 +45,14 @@ checkoutControllers.controller('CheckoutCtrl', ['$scope', 'Item',
       }else{
         $scope.item.quantity = 1;
       }
-      var item = getItem($scope.item.code)
+      var item = getItem($scope.item.code);
       if(angular.isDefined(item.name)){
         for(var i = 0; i < $scope.itemsForShow.length; i++){
           if($scope.itemsForShow[i].name == item.name){
             $scope.itemsForShow[i].quantity = Decimal.add($scope.itemsForShow[i].quantity,$scope.item.quantity).toNumber();
-            return
+            return;
           }
         }
-        
         $scope.item.name = item.name;
         $scope.item.sale = item.sale;
         $scope.item.price = item.price;
@@ -113,13 +112,13 @@ checkoutControllers.controller('CheckoutCtrl', ['$scope', 'Item',
       $scope.showReceipt = true;
       $scope.showBg = true;
       getItemsBuy3Get1Free();
-    }
+    };
 
     $scope.closeReceipt = function(){
       $scope.showReceipt = false;
       $scope.showBg = false;
       history.go(0);
-    }
+    };
 
     function getItem (code) {
       for(var i = 0; i < $scope.items.length; i++){
